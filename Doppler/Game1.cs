@@ -12,9 +12,7 @@ namespace Doppler
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        private Texture2D _texture;
-        private Vector2 _position;
-        private Rectangle _sourceRectangle;
+        private Sprite _sprite1;
 
         public Game1()
         {
@@ -42,9 +40,12 @@ namespace Doppler
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _texture = Content.Load<Texture2D>("characters/greenBird");
-            _position = new Vector2(0, 0);
-            _sourceRectangle = new Rectangle(0, 0, 1250, 1225);
+            var texture = Content.Load<Texture2D>("characters/greenBird");
+
+            _sprite1 = new Sprite(texture, new Vector2(100, 100));
+
+
+           // _sourceRectangle = new Rectangle(0, 0, 1250, 1225);
         }
 
         /// <summary>
@@ -63,15 +64,7 @@ namespace Doppler
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-
-            if (Keyboard.GetState().IsKeyDown(Keys.W))
-            {
-                _position.Y -= 1;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
-            {
-                _position.Y += 1;
-            }
+            _sprite1.Update();
 
             // TODO: Add your update logic here
 
@@ -87,7 +80,7 @@ namespace Doppler
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(_texture, _position, _sourceRectangle, Color.White);
+            _sprite1.Draw(spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
