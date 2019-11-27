@@ -13,41 +13,53 @@ namespace Doppler
     {
         public Texture2D _texture;
 
-        public Vector2 Position;
+        public Vector2 _position;
 
         public float Speed = 2f;
+        public int numberOfCoins = 0;
+        public int level = 0;
 
         public Sprite(Texture2D texture, Vector2 position)
         {
-            Position = position;
+            _position = position;
             _texture = texture;
+        }
+
+        public void addCoin()
+        {
+            numberOfCoins++;
         }
 
         public void Update()
         {
+            if(numberOfCoins == 5)
+            {
+                level++;
+                numberOfCoins = 0;
+                Console.WriteLine("LEVEL UP!");
+            }
+
             if (Keyboard.GetState().IsKeyDown(Keys.W))
             {
-                Position.Y -= Speed;
+                _position.Y -= Speed;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.S))
             {
-                Position.Y += Speed;
+                _position.Y += Speed;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.A))
             {
-                Position.X -= Speed;
+                _position.X -= Speed;
             }
             if (Keyboard.GetState().IsKeyDown(Keys.D))
             {
-                Position.X += Speed;
+                _position.X += Speed;
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(_texture, Position, Color.White);
-            spriteBatch.Draw(_texture, Position, new Rectangle(0, 0, 1250, 1225), Color.White, 0f, new Vector2(0, 0), new Vector2(0.08f, 0.08f), SpriteEffects.None, 1f);
-            Console.WriteLine("X: " + Position.X + "y: " +Position.Y);
+            spriteBatch.Draw(_texture, _position, new Rectangle(74, 22, 1176, 1203), Color.White, 0f, new Vector2(595, 474), new Vector2(0.1f, 0.1f), SpriteEffects.None, 1f);
         }
     }
 }

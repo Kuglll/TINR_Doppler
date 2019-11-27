@@ -23,3 +23,5 @@ X:\VisualCodeProjects\Doppler\Doppler\obj\x86\Debug\Doppler.csproj.CoreCompileIn
 X:\VisualCodeProjects\Doppler\Doppler\obj\x86\Debug\Doppler.csproj.CopyComplete
 X:\VisualCodeProjects\Doppler\Doppler\obj\x86\Debug\Doppler.exe
 X:\VisualCodeProjects\Doppler\Doppler\obj\x86\Debug\Doppler.pdb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\coin.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\Level.xnb

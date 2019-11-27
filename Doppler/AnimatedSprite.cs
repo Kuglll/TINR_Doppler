@@ -38,7 +38,7 @@ namespace Doppler
             int column = currentFrame % Columns;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)Position.X, (int)Position.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)_position.X, (int)_position.Y, width, height);
 
             spriteBatch.Draw(_texture, destinationRectangle, sourceRectangle, Color.White);
         }
