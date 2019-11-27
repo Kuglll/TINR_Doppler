@@ -46,7 +46,8 @@ namespace Doppler
         public void Draw(SpriteBatch spriteBatch)
         {
             //spriteBatch.Draw(_texture, Position, Color.White);
-            spriteBatch.Draw(_texture, Position, new Rectangle(0, 0, 1250, 1225), Color.White, 0f, new Vector2(0, 0), new Vector2(250, 250), SpriteEffects.None, 1f);
+            spriteBatch.Draw(_texture, Position, new Rectangle(0, 0, 1250, 1225), Color.White, 0f, new Vector2(0, 0), new Vector2(0.08f, 0.08f), SpriteEffects.None, 1f);
+            Console.WriteLine("X: " + Position.X + "y: " +Position.Y);
         }
     }
 }
