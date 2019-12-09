@@ -12,12 +12,12 @@ namespace Doppler
     public class Sprite
     {
         public Texture2D _texture;
-
         public Vector2 _position;
 
         public float Speed = 2f;
-        public int numberOfCoins = 0;
-        public int level = 0;
+
+        public bool WPressed = false;
+        public bool SPressed = false;
 
         public Sprite(Texture2D texture, Vector2 position)
         {
@@ -25,35 +25,19 @@ namespace Doppler
             _texture = texture;
         }
 
-        public void addCoin()
-        {
-            numberOfCoins++;
-        }
-
         public void Update()
         {
-            if(numberOfCoins == 5)
-            {
-                level++;
-                numberOfCoins = 0;
-                Console.WriteLine("LEVEL UP!");
+            if (Keyboard.GetState().IsKeyDown(Keys.W) && !WPressed){
+                WPressed = true;
+                if(_position.Y > 50) _position.Y -= 150;
+            } else if(Keyboard.GetState().IsKeyUp(Keys.W)){
+                WPressed = false;
             }
-
-            if (Keyboard.GetState().IsKeyDown(Keys.W))
-            {
-                _position.Y -= Speed;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.S))
-            {
-                _position.Y += Speed;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.A))
-            {
-                _position.X -= Speed;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
-            {
-                _position.X += Speed;
+            if (Keyboard.GetState().IsKeyDown(Keys.S) && !SPressed){
+                SPressed = true;
+                if(_position.Y < 350) _position.Y += 150;
+            } else if(Keyboard.GetState().IsKeyUp(Keys.S)){
+                SPressed = false;
             }
         }
 
