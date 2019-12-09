@@ -13,19 +13,43 @@ namespace Doppler
     {
         public Texture2D _texture;
         public Vector2 _position;
+        public int _lane;
         public bool _ally = true;
 
         public float Speed = 2f;
 
-        public MinionSprite(Vector2 position, bool ally)
+        public MinionSprite(int lane, bool ally)
         {
-            _position = position;
             _texture = Game1.content.Load<Texture2D>("characters/chicken");
             _ally = ally;
+            _position = getPositionByLane(lane);
+
         }
 
-        public MinionSprite(Vector2 position) : this(position, true){}
+        public MinionSprite(int lane) : this(lane, true){}
 
+        public Vector2 getPositionByLane(int lane)
+        {
+            if (_ally)
+            {
+                switch (lane)
+                {
+                    case 0: return new Vector2(100, 50);
+                    case 1: return new Vector2(100, 200);
+                    case 2: return new Vector2(100, 350);
+                }
+            }else
+            {
+                switch (lane)
+                {
+                    case 0: return new Vector2(0, 0);
+                    case 1: return new Vector2(0, 0);
+                    case 2: return new Vector2(0, 0);
+                }
+            }
+            return new Vector2(-100, -100); //non-reachable
+        }
+      
         public void Update()
         {
             if (_ally)

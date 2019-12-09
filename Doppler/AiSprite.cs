@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Doppler
         public Vector2 _position;
 
         public float Speed = 2f;
+        ArrayList minions = new ArrayList();
 
         public AiSprite(Texture2D texture, Vector2 position)
         {
@@ -24,12 +26,19 @@ namespace Doppler
 
         public void Update()
         {
-
+            foreach (MinionSprite minion in minions)
+            {
+                minion.Update();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_texture, _position, new Rectangle(0, 0, 1116, 864), Color.White, 0f, new Vector2(470, 642), new Vector2(0.1f, 0.1f), SpriteEffects.FlipHorizontally, 1f);
+            foreach (MinionSprite minion in minions)
+            {
+                minion.Draw(spriteBatch);
+            }
         }
     }
 }
