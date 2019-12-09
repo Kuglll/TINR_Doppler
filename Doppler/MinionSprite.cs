@@ -13,13 +13,15 @@ namespace Doppler
     {
         public Texture2D _texture;
         public Vector2 _position;
+        public bool _ally = true;
 
         public float Speed = 2f;
 
-        public MinionSprite(Texture2D texture, Vector2 position)
+        public MinionSprite(Texture2D texture, Vector2 position, bool ally)
         {
             _position = position;
             _texture = texture;
+            _ally = ally;
         }
 
         public void Update()

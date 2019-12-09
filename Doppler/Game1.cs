@@ -13,15 +13,6 @@ namespace Doppler
         Random rnd;
         SpriteFont font;
 
-
-        //player
-        private Sprite _sprite1;
-        Texture2D playerTexture;
-       
-        //AI
-        private AiSprite _spriteAi;
-        Texture2D aiTexture;
-
         //coin
         private Sprite _coin;
         Texture2D coinTexture;
@@ -56,14 +47,8 @@ namespace Doppler
             // Create scene
             _scene = new Scene(Content);
 
-            // Create textures
-            playerTexture = Content.Load<Texture2D>("characters/greenBird");
-            aiTexture = Content.Load<Texture2D>("characters/monster");
-            coinTexture = Content.Load<Texture2D>("coin");
-
-            _sprite1 = new Sprite(playerTexture, new Vector2(60, 50));
-            _spriteAi = new AiSprite(aiTexture, new Vector2(730, 215));
-            
+     
+            coinTexture = Content.Load<Texture2D>("coin");           
         }
 
 
@@ -74,9 +59,8 @@ namespace Doppler
 
         protected override void Update(GameTime gameTime)
         {
-            _sprite1.Update();
-            _spriteAi.Update();
-
+            _scene.Update();
+           
             // check for message duration
             for(int i=0; i<messages.Count; i++)
             {
@@ -98,12 +82,6 @@ namespace Doppler
             spriteBatch.Begin();
             //scene
             _scene.Draw(spriteBatch);
-       
-            //player
-            _sprite1.Draw(spriteBatch);
-
-            //ai
-            _spriteAi.Draw(spriteBatch);
 
             spriteBatch.End();
 

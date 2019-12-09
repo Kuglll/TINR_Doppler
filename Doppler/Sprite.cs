@@ -18,6 +18,9 @@ namespace Doppler
 
         public bool WPressed = false;
         public bool SPressed = false;
+        public bool SpacePressed = true;
+
+        Arraylist minion = new Arraylist();
 
         public Sprite(Texture2D texture, Vector2 position)
         {
@@ -39,6 +42,17 @@ namespace Doppler
             } else if(Keyboard.GetState().IsKeyUp(Keys.S)){
                 SPressed = false;
             }
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) && !SpacePressed){
+                SpacePressed = true;
+                spawnMinion();
+            } else if(Keyboard.GetState().IsKeyUp(Keys.Space)){
+                SpacePressed = false;
+            }
+        }
+
+        public void spawnMinion()
+        {
+            Console.WriteLine("Minion spawned!");
         }
 
         public void Draw(SpriteBatch spriteBatch)

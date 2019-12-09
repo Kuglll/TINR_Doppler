@@ -1,2 +1,2 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"X:/VisualCodeProjects/Doppler/Doppler/Content/tiles.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/tiles.xnb","TextureProcessor","Texture2DContent",72197,16777301,0,6829819
+"X:/VisualCodeProjects/Doppler/Doppler/Content/characters/chicken.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/characters/chicken.xnb","TextureProcessor","Texture2DContent",316924,25398997,0,9531376

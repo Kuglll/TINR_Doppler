@@ -17,16 +17,33 @@ namespace Doppler
         ContentManager _content;
         Texture2D tileTexture;
 
+        //player
+        private Sprite _sprite1;
+        Texture2D playerTexture;
+
+        //AI
+        private AiSprite _spriteAi;
+        Texture2D aiTexture;
+
         public Scene(ContentManager content)
         {
             _content = content;
             initTextures();
+            setupPlayers();
             generateTiles();
+        }
+
+        public void setupPlayers()
+        {
+            _sprite1 = new Sprite(playerTexture, new Vector2(60, 50));
+            _spriteAi = new AiSprite(aiTexture, new Vector2(730, 215));
         }
 
         public void initTextures()
         {
             tileTexture = _content.Load<Texture2D>("tiles");
+            playerTexture = _content.Load<Texture2D>("characters/greenBird");
+            aiTexture = _content.Load<Texture2D>("characters/monster");
         }
 
         public void generateTiles()
@@ -45,12 +62,24 @@ namespace Doppler
             }
         }
 
+        public void Update()
+        {
+            _sprite1.Update();
+            _spriteAi.Update();
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach(Tile tile in tiles)
             {
                 tile.Draw(spriteBatch);
             }
+
+            //player
+            _sprite1.Draw(spriteBatch);
+
+            //ai
+            _spriteAi.Draw(spriteBatch);
         }
 
 
