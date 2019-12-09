@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Doppler
         public bool SPressed = false;
         public bool SpacePressed = true;
 
-        Arraylist minion = new Arraylist();
+        ArrayList minions = new ArrayList();
 
         public Sprite(Texture2D texture, Vector2 position)
         {
@@ -30,6 +31,11 @@ namespace Doppler
 
         public void Update()
         {
+            foreach (MinionSprite minion in minions)
+            {
+                minion.Update();
+            }
+
             if (Keyboard.GetState().IsKeyDown(Keys.W) && !WPressed){
                 WPressed = true;
                 if(_position.Y > 50) _position.Y -= 150;
@@ -52,12 +58,16 @@ namespace Doppler
 
         public void spawnMinion()
         {
-            Console.WriteLine("Minion spawned!");
+            minions.Add(new MinionSprite(new Vector2(100, _position.Y)));
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_texture, _position, new Rectangle(74, 22, 1176, 1203), Color.White, 0f, new Vector2(595, 474), new Vector2(0.1f, 0.1f), SpriteEffects.None, 1f);
+            foreach (MinionSprite minion in minions)
+            {
+                minion.Draw(spriteBatch);
+            }
         }
     }
 }

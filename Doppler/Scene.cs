@@ -14,7 +14,6 @@ namespace Doppler
     {
 
         ArrayList tiles = new ArrayList();
-        ContentManager _content;
         Texture2D tileTexture;
 
         //player
@@ -25,9 +24,8 @@ namespace Doppler
         private AiSprite _spriteAi;
         Texture2D aiTexture;
 
-        public Scene(ContentManager content)
+        public Scene()
         {
-            _content = content;
             initTextures();
             setupPlayers();
             generateTiles();
@@ -41,9 +39,9 @@ namespace Doppler
 
         public void initTextures()
         {
-            tileTexture = _content.Load<Texture2D>("tiles");
-            playerTexture = _content.Load<Texture2D>("characters/greenBird");
-            aiTexture = _content.Load<Texture2D>("characters/monster");
+            tileTexture = Game1.content.Load<Texture2D>("tiles");
+            playerTexture = Game1.content.Load<Texture2D>("characters/greenBird");
+            aiTexture = Game1.content.Load<Texture2D>("characters/monster");
         }
 
         public void generateTiles()

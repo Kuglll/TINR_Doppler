@@ -4,6 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>X:/VisualCodeProjects/Doppler/Doppler/Content/characters/chicken.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/characters/greenBird.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/characters/monster.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/coin.png</File>
@@ -11,6 +12,7 @@
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/tiles.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

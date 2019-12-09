@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -10,6 +11,8 @@ namespace Doppler
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        public static ContentManager content;
+
         Random rnd;
         SpriteFont font;
 
@@ -29,6 +32,7 @@ namespace Doppler
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            content = Content;
         }
 
         protected override void Initialize()
@@ -42,13 +46,13 @@ namespace Doppler
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             rnd = new Random();
-            font = Content.Load<SpriteFont>("Level");
+            font = content.Load<SpriteFont>("Level");
 
             // Create scene
-            _scene = new Scene(Content);
+            _scene = new Scene();
 
      
-            coinTexture = Content.Load<Texture2D>("coin");           
+            coinTexture = content.Load<Texture2D>("coin");           
         }
 
 

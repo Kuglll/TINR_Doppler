@@ -26,3 +26,4 @@ X:\VisualCodeProjects\Doppler\Doppler\obj\x86\Debug\Doppler.pdb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\coin.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\Level.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\tiles.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\chicken.xnb
