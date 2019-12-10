@@ -14,20 +14,23 @@ namespace Doppler
     {
         public Texture2D _texture;
         public Vector2 _position;
+        Random rnd;
 
         public float Speed = 2f;
         public int currentLane;
+        public int? selectedLane;
         ArrayList minions = new ArrayList();
 
         float lastActionTime = 0;
 
-        int[] enemyMinionCount = {0, 0, 0};
-
         public AiSprite(Texture2D texture, int lane)
         {
+            rnd = new Random();
             _position.X = 730;
-            currentLane = lane;
             _texture = texture;
+
+            selectedLane = null;
+            currentLane = lane;
         }
 
         public void Update(GameTime gameTime)
@@ -38,16 +41,7 @@ namespace Doppler
                 minion.Update();
             }
 
-            // BROKEN PART
-            checkEnemyMinions();
-
-            for (int i = 0; i < 3; i++)
-            {
-                //Console.WriteLine("Lane " + i + ": Number of minions: " + enemyMinionCount[i]);
-            }
-            // END OF BROKEN PART
-
-            //Do action every 0.5 second
+            //Do action every 1 second
             if ((float)gameTime.TotalGameTime.TotalSeconds - lastActionTime > 1f ){
                 doAction();
                 lastActionTime = (float)gameTime.TotalGameTime.TotalSeconds;
@@ -68,20 +62,47 @@ namespace Doppler
 
         public void doAction()
         {
-            spawnMinion();
+            if (selectedLane == currentLane)
+            {
+                selectedLane = null;
+                spawnMinion();
+            }
+            if (selectedLane == null) {
+                selectLane();
+            } else
+            {
+                if(selectedLane > currentLane)
+                {
+                    currentLane++;
+                }
+                else
+                {
+                    currentLane--;
+                }
+            }
+        }
+
+        public void selectLane()
+        {
+            int random = rnd.Next(Sprite.minionsPerLane.Sum() + 3);
+
+            if(random >= 0 && random <= Sprite.minionsPerLane[0])
+            {
+                selectedLane = 0;
+            }
+            else if(random >= Sprite.minionsPerLane[0] + 1 && random <= Sprite.minionsPerLane[1] + Sprite.minionsPerLane[0] + 1)
+            {
+                selectedLane = 1;
+            }
+            else if(random >= Sprite.minionsPerLane[1] + Sprite.minionsPerLane[0] + 1 && random <= Sprite.minionsPerLane.Sum() + 3)
+            {
+                selectedLane = 2;
+            }
         }
 
         public void spawnMinion()
         {
             minions.Add(new MinionSprite(currentLane, false));
-        }
-
-        public void checkEnemyMinions()
-        {
-            foreach(MinionSprite enemyMinion in Sprite.minions)
-            {
-                enemyMinionCount[enemyMinion._lane]++; 
-            }
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

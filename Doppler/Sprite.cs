@@ -22,7 +22,8 @@ namespace Doppler
         public bool SPressed = false;
         public bool SpacePressed = true;
 
-        public static ArrayList minions = new ArrayList();
+        ArrayList minions = new ArrayList();
+        public static int[] minionsPerLane = { 0, 0, 0 };
 
         public Sprite(Texture2D texture, int lane)
         {
@@ -79,6 +80,7 @@ namespace Doppler
         public void spawnMinion()
         {
             minions.Add(new MinionSprite(currentLane));
+            minionsPerLane[currentLane]++;
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
