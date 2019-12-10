@@ -8,11 +8,15 @@ using System.Threading.Tasks;
 
 namespace Doppler
 {
-    public class Coin : Sprite
+    public class Coin
     {
-        public Coin(Texture2D texture, Vector2 position) : base(texture, position)
+        public Texture2D _texture;
+        public Vector2 _position;
+
+        public Coin(Texture2D texture, Vector2 position)
         {
-          
+            _texture = texture;
+            _position = position;
         }
 
         public void Update()

@@ -12,27 +12,23 @@ namespace Doppler
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public static ContentManager content;
+        public static GameTime _gameTime;
 
         Random rnd;
         SpriteFont font;
-
-        //coin
-        private Sprite _coin;
-        Texture2D coinTexture;
 
         //Scene
         private Scene _scene;
 
         //arrays
         List<Message> messages = new List<Message>();
-        Coin[] coins = new Coin[5];
-
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             content = Content;
+            
         }
 
         protected override void Initialize()
@@ -50,9 +46,6 @@ namespace Doppler
 
             // Create scene
             _scene = new Scene();
-
-     
-            coinTexture = content.Load<Texture2D>("coin");           
         }
 
 
@@ -63,17 +56,16 @@ namespace Doppler
 
         protected override void Update(GameTime gameTime)
         {
-            _scene.Update();
+            _scene.Update(gameTime);
            
             // check for message duration
             for(int i=0; i<messages.Count; i++)
             {
-                if(messages[i]._timer - (float)gameTime.TotalGameTime.TotalSeconds < -3)
+                if((float)gameTime.TotalGameTime.TotalSeconds - messages[i]._timer > 3)
                 {
                     messages.RemoveAt(i);
                 }
             }
-
 
             base.Update(gameTime);
         }
@@ -85,7 +77,7 @@ namespace Doppler
 
             spriteBatch.Begin();
             //scene
-            _scene.Draw(spriteBatch);
+            _scene.Draw(spriteBatch, gameTime);
 
             spriteBatch.End();
 
@@ -96,7 +88,8 @@ namespace Doppler
         {
             int x = rnd.Next(20, GraphicsDevice.Viewport.Bounds.Width - 20);
             int y = rnd.Next(20, GraphicsDevice.Viewport.Bounds.Height - 20);
-            return new Coin(coinTexture,  new Vector2(x,y));
+            //return new Coin(coinTexture,  new Vector2(x,y));
+            return null;
         }
     }
 }

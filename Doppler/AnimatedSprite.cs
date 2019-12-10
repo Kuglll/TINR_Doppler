@@ -15,7 +15,8 @@ namespace Doppler
         private int currentFrame;
         private int totalFrames;
 
-        public AnimatedSprite(Texture2D texture, Vector2 position, int rows, int columns) : base(texture, position)
+
+        public AnimatedSprite(Texture2D texture, int currentLane, int rows, int columns) : base(texture, currentLane)
         {
             Rows = rows;
             Columns = columns;
@@ -23,11 +24,11 @@ namespace Doppler
             totalFrames = rows * columns;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             currentFrame++;
             if (currentFrame == totalFrames) currentFrame = 0;
-            base.Update();
+            base.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)

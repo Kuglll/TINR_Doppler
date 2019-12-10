@@ -16,7 +16,7 @@ namespace Doppler
         public int _lane;
         public bool _ally = true;
 
-        public float Speed = 2f;
+        public float Speed = 1.5f;
 
         public MinionSprite(int lane, bool ally)
         {
@@ -42,9 +42,9 @@ namespace Doppler
             {
                 switch (lane)
                 {
-                    case 0: return new Vector2(0, 0);
-                    case 1: return new Vector2(0, 0);
-                    case 2: return new Vector2(0, 0);
+                    case 0: return new Vector2(690, 50);
+                    case 1: return new Vector2(690, 200);
+                    case 2: return new Vector2(690, 350);
                 }
             }
             return new Vector2(-100, -100); //non-reachable

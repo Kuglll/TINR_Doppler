@@ -16,21 +16,22 @@ namespace Doppler
         public Vector2 _position;
 
         public float Speed = 2f;
-        public int currentLane = 0;
+        public int currentLane;
 
         public bool WPressed = false;
         public bool SPressed = false;
         public bool SpacePressed = true;
 
-        ArrayList minions = new ArrayList();
+        public static ArrayList minions = new ArrayList();
 
-        public Sprite(Texture2D texture, Vector2 position)
+        public Sprite(Texture2D texture, int lane)
         {
-            _position = position;
+            _position.X = 60;
+            currentLane = lane;
             _texture = texture;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             foreach (MinionSprite minion in minions)
             {
@@ -80,7 +81,7 @@ namespace Doppler
             minions.Add(new MinionSprite(currentLane));
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(_texture, _position, new Rectangle(74, 22, 1176, 1203), Color.White, 0f, new Vector2(595, 474), new Vector2(0.1f, 0.1f), SpriteEffects.None, 1f);
             foreach (MinionSprite minion in minions)
