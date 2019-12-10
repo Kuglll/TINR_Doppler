@@ -1,0 +1,117 @@
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Doppler
+{
+    public class AiSprite
+    {
+        public Texture2D _texture;
+        public Vector2 _position;
+        Random rnd;
+
+        public float Speed = 2f;
+        public int currentLane;
+        public int? selectedLane;
+        ArrayList minions = new ArrayList();
+
+        float lastActionTime = 0;
+
+        public AiSprite(Texture2D texture, int lane)
+        {
+            rnd = new Random();
+            _position.X = 730;
+            _texture = texture;
+
+            selectedLane = null;
+            currentLane = lane;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            //update minions
+            foreach (MinionSprite minion in minions)
+            {
+                minion.Update();
+            }
+
+            //Do action every 1 second
+            if ((float)gameTime.TotalGameTime.TotalSeconds - lastActionTime > 1f ){
+                doAction();
+                lastActionTime = (float)gameTime.TotalGameTime.TotalSeconds;
+            }
+
+            updatePosition(currentLane);
+        }
+
+        public void updatePosition(int lane)
+        {
+            switch (lane)
+            {
+                case 0: _position.Y = 65; break;
+                case 1: _position.Y = 215; break;
+                case 2: _position.Y = 365; break;
+            }
+        }
+
+        public void doAction()
+        {
+            if (selectedLane == currentLane)
+            {
+                selectedLane = null;
+                spawnMinion();
+            }
+            if (selectedLane == null) {
+                selectLane();
+            } else
+            {
+                if(selectedLane > currentLane)
+                {
+                    currentLane++;
+                }
+                else
+                {
+                    currentLane--;
+                }
+            }
+        }
+
+        public void selectLane()
+        {
+            int random = rnd.Next(Sprite.minionsPerLane.Sum() + 3);
+
+            if(random >= 0 && random <= Sprite.minionsPerLane[0])
+            {
+                selectedLane = 0;
+            }
+            else if(random >= Sprite.minionsPerLane[0] + 1 && random <= Sprite.minionsPerLane[1] + Sprite.minionsPerLane[0] + 1)
+            {
+                selectedLane = 1;
+            }
+            else if(random >= Sprite.minionsPerLane[1] + Sprite.minionsPerLane[0] + 1 && random <= Sprite.minionsPerLane.Sum() + 3)
+            {
+                selectedLane = 2;
+            }
+        }
+
+        public void spawnMinion()
+        {
+            minions.Add(new MinionSprite(currentLane, false));
+        }
+
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            spriteBatch.Draw(_texture, _position, new Rectangle(0, 0, 1116, 864), Color.White, 0f, new Vector2(470, 642), new Vector2(0.1f, 0.1f), SpriteEffects.FlipHorizontally, 1f);
+            foreach (MinionSprite minion in minions)
+            {
+                minion.Draw(spriteBatch);
+            }
+        }
+    }
+}
