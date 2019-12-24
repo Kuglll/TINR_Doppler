@@ -21,6 +21,10 @@ namespace Doppler
         public int? selectedLane;
         ArrayList minions = new ArrayList();
 
+        private int health = 10;
+        private int mana = 0;
+        private int minionSelected = 0;
+
         float lastActionTime = 0;
 
         public AiSprite(Texture2D texture, int lane)
@@ -41,13 +45,18 @@ namespace Doppler
                 minion.Update();
             }
 
-            //Do action every 1 second
+            //Do action every 1 second + obtain 1 mana
             if ((float)gameTime.TotalGameTime.TotalSeconds - lastActionTime > 1f ){
+                mana += 1;
                 doAction();
                 lastActionTime = (float)gameTime.TotalGameTime.TotalSeconds;
+                Console.WriteLine("Mana player2: " + mana);
             }
 
             updatePosition(currentLane);
+
+            //update GUI
+            GUI.UpdatePlayer2(health, mana, minionSelected);
         }
 
         public void updatePosition(int lane)
@@ -64,13 +73,17 @@ namespace Doppler
         {
             if (selectedLane == currentLane)
             {
-                selectedLane = null;
-                spawnMinion();
-                Game1.sounds[2].Play();
+                if(mana >= MinionSprite.manaCost)
+                {
+                    selectedLane = null;
+                    spawnMinion();
+                    Game1.sounds[2].Play();
+                    mana -= MinionSprite.manaCost;
+                }
             }
             if (selectedLane == null) {
                 selectLane();
-            } else
+            } else if (selectedLane != currentLane)
             {
                 if(selectedLane > currentLane)
                 {

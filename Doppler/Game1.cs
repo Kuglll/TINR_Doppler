@@ -21,6 +21,9 @@ namespace Doppler
         //Scene
         private Scene _scene;
 
+        //Gui
+        private GUI _gui;
+
         //arrays
         List<Message> messages = new List<Message>();
         public static List<SoundEffect> sounds = new List<SoundEffect>();
@@ -28,9 +31,10 @@ namespace Doppler
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferHeight = 600;
+            graphics.ApplyChanges();
             Content.RootDirectory = "Content";
             content = Content;
-            
         }
 
         protected override void Initialize()
@@ -48,6 +52,9 @@ namespace Doppler
 
             // Create scene
             _scene = new Scene();
+
+            // Create gui
+            _gui = new GUI();
 
             // Create sounds
             sounds.Add(content.Load<SoundEffect>("human"));
@@ -83,8 +90,12 @@ namespace Doppler
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
+
             //scene
             _scene.Draw(spriteBatch, gameTime);
+
+            //gui
+            _gui.Draw(spriteBatch);
 
             spriteBatch.End();
 
