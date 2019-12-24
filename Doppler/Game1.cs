@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -22,6 +23,7 @@ namespace Doppler
 
         //arrays
         List<Message> messages = new List<Message>();
+        public static List<SoundEffect> sounds = new List<SoundEffect>();
 
         public Game1()
         {
@@ -46,6 +48,11 @@ namespace Doppler
 
             // Create scene
             _scene = new Scene();
+
+            // Create sounds
+            sounds.Add(content.Load<SoundEffect>("human"));
+            sounds.Add(content.Load<SoundEffect>("ai"));
+            sounds.Add(content.Load<SoundEffect>("minionSpawn"));
         }
 
 
