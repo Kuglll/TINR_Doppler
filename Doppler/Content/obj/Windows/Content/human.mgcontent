@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>X:/VisualCodeProjects/Doppler/Doppler/Content/human.wav</SourceFile>
+  <SourceTime>2019-12-16T15:29:11.2791728+01:00</SourceTime>
+  <DestFile>X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/Content/human.xnb</DestFile>
+  <DestTime>2019-12-16T15:38:26.671371+01:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2018-12-08T17:35:54+01:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

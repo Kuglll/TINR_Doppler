@@ -13,6 +13,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ai.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:ai.wav
+
 #begin characters/chicken.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -61,12 +67,24 @@
 /processorParam:TextureFormat=Color
 /build:coin.png
 
+#begin human.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:human.wav
+
 #begin Level.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Level.spritefont
+
+#begin minionSpawn.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:minionSpawn.wav
 
 #begin tiles.png
 /importer:TextureImporter

@@ -44,6 +44,7 @@ namespace Doppler
                 if (currentLane > 0)
                 {
                     currentLane -= 1;
+                    Game1.sounds[0].Play();
                 }
             } else if(Keyboard.GetState().IsKeyUp(Keys.W)){
                 WPressed = false;
@@ -53,6 +54,7 @@ namespace Doppler
                 if (currentLane < 2)
                 {
                     currentLane += 1;
+                    Game1.sounds[0].Play();
                 }
             } else if(Keyboard.GetState().IsKeyUp(Keys.S)){
                 SPressed = false;
@@ -60,6 +62,7 @@ namespace Doppler
             if (Keyboard.GetState().IsKeyDown(Keys.Space) && !SpacePressed){
                 SpacePressed = true;
                 spawnMinion();
+                Game1.sounds[2].Play();
             } else if(Keyboard.GetState().IsKeyUp(Keys.Space)){
                 SpacePressed = false;
             }

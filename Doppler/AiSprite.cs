@@ -66,6 +66,7 @@ namespace Doppler
             {
                 selectedLane = null;
                 spawnMinion();
+                Game1.sounds[2].Play();
             }
             if (selectedLane == null) {
                 selectLane();
@@ -74,10 +75,12 @@ namespace Doppler
                 if(selectedLane > currentLane)
                 {
                     currentLane++;
+                    Game1.sounds[1].Play();
                 }
                 else
                 {
                     currentLane--;
+                    Game1.sounds[1].Play();
                 }
             }
         }

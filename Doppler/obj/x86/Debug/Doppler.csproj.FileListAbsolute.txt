@@ -27,3 +27,6 @@ X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\coin.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\Level.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\tiles.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\chicken.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\ai.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\human.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\minionSpawn.xnb
