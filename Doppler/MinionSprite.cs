@@ -17,6 +17,7 @@ namespace Doppler
         public bool _ally = true;
 
         public float Speed = 1.5f;
+        public static int manaCost = 2;
 
         public MinionSprite(int lane, bool ally)
         {

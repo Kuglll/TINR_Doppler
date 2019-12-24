@@ -22,6 +22,12 @@ namespace Doppler
         public bool SPressed = false;
         public bool SpacePressed = true;
 
+        private int health = 10;
+        private int mana = 0;
+        private int minionSelected = 0;
+
+        float lastManaObtained = 0;
+
         ArrayList minions = new ArrayList();
         public static int[] minionsPerLane = { 0, 0, 0 };
 
@@ -34,11 +40,21 @@ namespace Doppler
 
         public void Update(GameTime gameTime)
         {
+            //update all minions
             foreach (MinionSprite minion in minions)
             {
                 minion.Update();
             }
 
+            //obtain 1 mana
+            if ((float)gameTime.TotalGameTime.TotalSeconds - lastManaObtained > 1f)
+            {
+                mana += 1;
+                lastManaObtained = (float)gameTime.TotalGameTime.TotalSeconds;
+                Console.WriteLine("Mana player1: "+ mana);
+            }
+
+            //process all the keys
             if (Keyboard.GetState().IsKeyDown(Keys.W) && !WPressed){
                 WPressed = true;
                 if (currentLane > 0)
@@ -62,12 +78,14 @@ namespace Doppler
             if (Keyboard.GetState().IsKeyDown(Keys.Space) && !SpacePressed){
                 SpacePressed = true;
                 spawnMinion();
-                Game1.sounds[2].Play();
             } else if(Keyboard.GetState().IsKeyUp(Keys.Space)){
                 SpacePressed = false;
             }
 
             updatePosition(currentLane);
+
+            //update GUI
+            GUI.UpdatePlayer1(health, mana, minionSelected);
         }
 
         public void updatePosition(int lane)
@@ -82,8 +100,13 @@ namespace Doppler
 
         public void spawnMinion()
         {
-            minions.Add(new MinionSprite(currentLane));
-            minionsPerLane[currentLane]++;
+            if(mana >= MinionSprite.manaCost)
+            {
+                minions.Add(new MinionSprite(currentLane));
+                minionsPerLane[currentLane]++;
+                Game1.sounds[2].Play();
+                mana -= MinionSprite.manaCost;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
