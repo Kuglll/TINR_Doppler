@@ -40,52 +40,64 @@ namespace Doppler
 
         public void Update(GameTime gameTime)
         {
-            //update all minions
-            foreach (MinionSprite minion in minions)
+            if (!Game1.paused)
             {
-                minion.Update();
-            }
-
-            //obtain 1 mana
-            if ((float)gameTime.TotalGameTime.TotalSeconds - lastManaObtained > 1f)
-            {
-                mana += 1;
-                lastManaObtained = (float)gameTime.TotalGameTime.TotalSeconds;
-                Console.WriteLine("Mana player1: "+ mana);
-            }
-
-            //process all the keys
-            if (Keyboard.GetState().IsKeyDown(Keys.W) && !WPressed){
-                WPressed = true;
-                if (currentLane > 0)
+                //update all minions
+                foreach (MinionSprite minion in minions)
                 {
-                    currentLane -= 1;
-                    Game1.sounds[0].Play();
+                    minion.Update();
                 }
-            } else if(Keyboard.GetState().IsKeyUp(Keys.W)){
-                WPressed = false;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.S) && !SPressed){
-                SPressed = true;
-                if (currentLane < 2)
+
+                //obtain 1 mana
+                if ((float)gameTime.TotalGameTime.TotalSeconds - lastManaObtained > 1f)
                 {
-                    currentLane += 1;
-                    Game1.sounds[0].Play();
+                    mana += 1;
+                    lastManaObtained = (float)gameTime.TotalGameTime.TotalSeconds;
+                    Console.WriteLine("Mana player1: " + mana);
                 }
-            } else if(Keyboard.GetState().IsKeyUp(Keys.S)){
-                SPressed = false;
-            }
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) && !SpacePressed){
-                SpacePressed = true;
-                spawnMinion();
-            } else if(Keyboard.GetState().IsKeyUp(Keys.Space)){
-                SpacePressed = false;
-            }
 
-            updatePosition(currentLane);
+                //process all the keys
+                if (Keyboard.GetState().IsKeyDown(Keys.W) && !WPressed)
+                {
+                    WPressed = true;
+                    if (currentLane > 0)
+                    {
+                        currentLane -= 1;
+                        Game1.sounds[0].Play();
+                    }
+                }
+                else if (Keyboard.GetState().IsKeyUp(Keys.W))
+                {
+                    WPressed = false;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.S) && !SPressed)
+                {
+                    SPressed = true;
+                    if (currentLane < 2)
+                    {
+                        currentLane += 1;
+                        Game1.sounds[0].Play();
+                    }
+                }
+                else if (Keyboard.GetState().IsKeyUp(Keys.S))
+                {
+                    SPressed = false;
+                }
+                if (Keyboard.GetState().IsKeyDown(Keys.Space) && !SpacePressed)
+                {
+                    SpacePressed = true;
+                    spawnMinion();
+                }
+                else if (Keyboard.GetState().IsKeyUp(Keys.Space))
+                {
+                    SpacePressed = false;
+                }
 
-            //update GUI
-            GUI.UpdatePlayer1(health, mana, minionSelected);
+                updatePosition(currentLane);
+
+                //update GUI
+                GUI.UpdatePlayer1(health, mana, minionSelected);
+            }
         }
 
         public void updatePosition(int lane)

@@ -39,24 +39,28 @@ namespace Doppler
 
         public void Update(GameTime gameTime)
         {
-            //update minions
-            foreach (MinionSprite minion in minions)
+            if (!Game1.paused)
             {
-                minion.Update();
+                //update minions
+                foreach (MinionSprite minion in minions)
+                {
+                    minion.Update();
+                }
+
+                //Do action every 1 second + obtain 1 mana
+                if ((float)gameTime.TotalGameTime.TotalSeconds - lastActionTime > 1f)
+                {
+                    mana += 1;
+                    doAction();
+                    lastActionTime = (float)gameTime.TotalGameTime.TotalSeconds;
+                    Console.WriteLine("Mana player2: " + mana);
+                }
+
+                updatePosition(currentLane);
+
+                //update GUI
+                GUI.UpdatePlayer2(health, mana, minionSelected);
             }
-
-            //Do action every 1 second + obtain 1 mana
-            if ((float)gameTime.TotalGameTime.TotalSeconds - lastActionTime > 1f ){
-                mana += 1;
-                doAction();
-                lastActionTime = (float)gameTime.TotalGameTime.TotalSeconds;
-                Console.WriteLine("Mana player2: " + mana);
-            }
-
-            updatePosition(currentLane);
-
-            //update GUI
-            GUI.UpdatePlayer2(health, mana, minionSelected);
         }
 
         public void updatePosition(int lane)

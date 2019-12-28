@@ -17,6 +17,8 @@ namespace Doppler
 
         Random rnd;
         SpriteFont font;
+        public static bool paused = false;
+        bool EscapePressed = false;
 
         //Scene
         private Scene _scene;
@@ -70,7 +72,27 @@ namespace Doppler
 
         protected override void Update(GameTime gameTime)
         {
+            //pausing with escape
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape) && !EscapePressed)
+            {
+                if (!paused)
+                {
+                    paused = true;
+                } else
+                {
+                    paused = false;
+                }
+                
+                EscapePressed = true;
+            }
+            else if (Keyboard.GetState().IsKeyUp(Keys.Escape))
+            {
+                EscapePressed = false;
+            }
+
+            
             _scene.Update(gameTime);
+            
            
             // check for message duration
             for(int i=0; i<messages.Count; i++)
@@ -96,7 +118,7 @@ namespace Doppler
 
             //gui
             _gui.Draw(spriteBatch);
-
+            
             spriteBatch.End();
 
             base.Draw(gameTime);
