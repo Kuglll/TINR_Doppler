@@ -53,7 +53,7 @@ namespace Doppler
                 {
                     mana += 1;
                     lastManaObtained = (float)gameTime.TotalGameTime.TotalSeconds;
-                    Console.WriteLine("Mana player1: " + mana);
+                    //Console.WriteLine("Mana player1: " + mana);
                 }
 
                 //process all the keys

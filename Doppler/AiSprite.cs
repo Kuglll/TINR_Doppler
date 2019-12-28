@@ -53,7 +53,7 @@ namespace Doppler
                     mana += 1;
                     doAction();
                     lastActionTime = (float)gameTime.TotalGameTime.TotalSeconds;
-                    Console.WriteLine("Mana player2: " + mana);
+                    //Console.WriteLine("Mana player2: " + mana);
                 }
 
                 updatePosition(currentLane);
