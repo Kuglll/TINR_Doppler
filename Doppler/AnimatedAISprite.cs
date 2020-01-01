@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework;
 
 namespace Doppler
 {
-    public class AnimatedSprite : Sprite
+    public class AnimatedAISprite : AiSprite
     {
         public int Rows { get; set; }
         public int Columns { get; set; }
@@ -17,7 +17,8 @@ namespace Doppler
 
         float lastUpdate = 0;
 
-        public AnimatedSprite(Texture2D texture, int currentLane, int rows, int columns) : base(texture, currentLane)
+
+        public AnimatedAISprite(Texture2D texture, int currentLane, int rows, int columns) : base(texture, currentLane)
         {
             Rows = rows;
             Columns = columns;
@@ -46,7 +47,7 @@ namespace Doppler
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle((int)_position.X, (int)_position.Y, width, height);
 
-            spriteBatch.Draw(_texture, _position, sourceRectangle, Color.White, 0f, new Vector2(595, 474), new Vector2(0.2f, 0.2f), SpriteEffects.None, 1f);
+            spriteBatch.Draw(_texture, _position, sourceRectangle, Color.White, 0f, new Vector2(595, 474), new Vector2(0.2f, 0.2f), SpriteEffects.FlipHorizontally, 1f);
             DrawMinions(spriteBatch, gameTime);
         }
     }

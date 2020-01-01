@@ -30,7 +30,7 @@ namespace Doppler
         public AiSprite(Texture2D texture, int lane)
         {
             rnd = new Random();
-            _position.X = 730;
+            _position.X = 800;
             _texture = texture;
 
             selectedLane = null;
@@ -67,9 +67,9 @@ namespace Doppler
         {
             switch (lane)
             {
-                case 0: _position.Y = 65; break;
-                case 1: _position.Y = 215; break;
-                case 2: _position.Y = 365; break;
+                case 0: _position.Y = 100; break;
+                case 1: _position.Y = 250; break;
+                case 2: _position.Y = 400; break;
             }
         }
 
@@ -128,6 +128,10 @@ namespace Doppler
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(_texture, _position, new Rectangle(0, 0, 1116, 864), Color.White, 0f, new Vector2(470, 642), new Vector2(0.1f, 0.1f), SpriteEffects.FlipHorizontally, 1f);
+            DrawMinions(spriteBatch, gameTime);
+        }
+        public void DrawMinions(SpriteBatch spriteBatch, GameTime gameTime)
+        {
             foreach (MinionSprite minion in minions)
             {
                 minion.Draw(spriteBatch);
