@@ -15,6 +15,8 @@ namespace Doppler
         private int currentFrame;
         private int totalFrames;
 
+        float lastUpdate = 0;
+
 
         public AnimatedSprite(Texture2D texture, int currentLane, int rows, int columns) : base(texture, currentLane)
         {
@@ -26,12 +28,16 @@ namespace Doppler
 
         public void Update(GameTime gameTime)
         {
-            currentFrame++;
-            if (currentFrame == totalFrames) currentFrame = 0;
+            if ((float)gameTime.TotalGameTime.TotalSeconds - lastUpdate > 0.1f)
+            {
+                lastUpdate = (float)gameTime.TotalGameTime.TotalSeconds;
+                currentFrame++;
+                if (currentFrame == totalFrames) currentFrame = 0;
+            }
             base.Update(gameTime);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             int width = _texture.Width / Columns;
             int height = _texture.Height / Rows;
@@ -41,7 +47,8 @@ namespace Doppler
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle((int)_position.X, (int)_position.Y, width, height);
 
-            spriteBatch.Draw(_texture, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.Draw(_texture, _position, sourceRectangle, Color.White, 0f, new Vector2(595, 474), new Vector2(0.2f, 0.2f), SpriteEffects.None, 1f);
+            DrawMinions(spriteBatch, gameTime);
         }
     }
 }

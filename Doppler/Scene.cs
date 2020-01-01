@@ -17,7 +17,7 @@ namespace Doppler
         Texture2D tileTexture;
 
         //player
-        private Sprite _sprite1;
+        private AnimatedSprite _sprite1;
         Texture2D playerTexture;
 
         //AI
@@ -40,7 +40,8 @@ namespace Doppler
 
         public void setupPlayers()
         {
-            _sprite1 = new Sprite(playerTexture, 0);
+            _sprite1 = new AnimatedSprite(playerTexture, 0, 2, 2);
+            // _sprite1 = new Sprite(playerTexture, 0);
             _spriteAi = new AiSprite(aiTexture, 0);
         }
 
