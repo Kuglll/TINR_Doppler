@@ -30,7 +30,7 @@ namespace Doppler
         public AiSprite(Texture2D texture, int lane)
         {
             rnd = new Random();
-            _position.X = 800;
+            _position.X = 870;
             _texture = texture;
 
             selectedLane = null;
@@ -67,9 +67,9 @@ namespace Doppler
         {
             switch (lane)
             {
-                case 0: _position.Y = 100; break;
-                case 1: _position.Y = 250; break;
-                case 2: _position.Y = 400; break;
+                case 0: _position.Y = 150; break;
+                case 1: _position.Y = 300; break;
+                case 2: _position.Y = 450; break;
             }
         }
 

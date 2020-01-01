@@ -33,7 +33,7 @@ namespace Doppler
 
         public Sprite(Texture2D texture, int lane)
         {
-            _position.X = 120;
+            _position.X = 180;
             currentLane = lane;
             _texture = texture;
         }
@@ -104,9 +104,9 @@ namespace Doppler
         {
             switch (lane)
             {
-                case 0: _position.Y = 90; break;
-                case 1: _position.Y = 240; break;
-                case 2: _position.Y = 390; break;
+                case 0: _position.Y = 160; break;
+                case 1: _position.Y = 310; break;
+                case 2: _position.Y = 460; break;
             }
         }
 

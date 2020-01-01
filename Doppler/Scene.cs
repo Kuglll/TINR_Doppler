@@ -34,15 +34,15 @@ namespace Doppler
         public void initTextures()
         {
             tileTexture = Game1.content.Load<Texture2D>("tiles");
-            playerTexture = Game1.content.Load<Texture2D>("characters/greenBird");
-            aiTexture = Game1.content.Load<Texture2D>("characters/monster");
+            playerTexture = Game1.content.Load<Texture2D>("characters/pinkBird");
+            aiTexture = Game1.content.Load<Texture2D>("characters/yellowBird");
         }
 
         public void setupPlayers()
         {
-            _sprite1 = new AnimatedSprite(playerTexture, 0, 2, 2);
+            _sprite1 = new AnimatedSprite(playerTexture, 0, 1, 2);
             // _sprite1 = new Sprite(playerTexture, 0);
-            _spriteAi = new AnimatedAISprite(aiTexture, 0, 4, 1);
+            _spriteAi = new AnimatedAISprite(aiTexture, 0, 1, 2);
         }
 
 

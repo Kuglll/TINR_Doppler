@@ -32,3 +32,5 @@ X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\minionSpawn.
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\gui.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\button.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\greenBird.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\pinkBird.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\yellowBird.xnb

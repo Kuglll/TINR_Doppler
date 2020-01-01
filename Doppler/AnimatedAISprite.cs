@@ -47,7 +47,7 @@ namespace Doppler
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
             Rectangle destinationRectangle = new Rectangle((int)_position.X, (int)_position.Y, width, height);
 
-            spriteBatch.Draw(_texture, _position, sourceRectangle, Color.White, 0f, new Vector2(595, 474), new Vector2(0.2f, 0.2f), SpriteEffects.FlipHorizontally, 1f);
+            spriteBatch.Draw(_texture, _position, sourceRectangle, Color.White, 0f, new Vector2(595, 474), new Vector2(0.3f, 0.3f), SpriteEffects.FlipHorizontally, 1f);
             DrawMinions(spriteBatch, gameTime);
         }
     }
