@@ -15,16 +15,20 @@ namespace Doppler
         public Vector2 _position;
         public int _lane;
         public bool _ally = true;
+        SpriteEffects effect;
 
         public float Speed = 1.5f;
         public static int manaCost = 2;
+
+        //static image rectangle
+        public static Rectangle sourceRectangle;
 
         public MinionSprite(int lane, bool ally)
         {
             _texture = Game1.content.Load<Texture2D>("characters/chicken");
             _ally = ally;
             _position = getPositionByLane(lane);
-
+            sourceRectangle = new Rectangle(0, 0, 550, 434);
         }
 
         public MinionSprite(int lane) : this(lane, true){}
@@ -35,17 +39,17 @@ namespace Doppler
             {
                 switch (lane)
                 {
-                    case 0: return new Vector2(100, 50);
-                    case 1: return new Vector2(100, 200);
-                    case 2: return new Vector2(100, 350);
+                    case 0: return new Vector2(170, 80);
+                    case 1: return new Vector2(170, 230);
+                    case 2: return new Vector2(170, 380);
                 }
             }else
             {
                 switch (lane)
                 {
-                    case 0: return new Vector2(690, 50);
-                    case 1: return new Vector2(690, 200);
-                    case 2: return new Vector2(690, 350);
+                    case 0: return new Vector2(720, 80);
+                    case 1: return new Vector2(720, 230);
+                    case 2: return new Vector2(720, 380);
                 }
             }
             return new Vector2(-100, -100); //non-reachable
@@ -60,20 +64,20 @@ namespace Doppler
             else
             {
                 _position.X -= Speed;
-            }
-            
+            }  
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Rectangle sourceRectangle)
         {
             if (_ally)
             {
-                spriteBatch.Draw(_texture, _position, new Rectangle(0, 0, 1090, 861), Color.White, 0f, new Vector2(612, 438), new Vector2(0.1f, 0.1f), SpriteEffects.None, 1f);
+                effect = SpriteEffects.None;
             } else
             {
-                spriteBatch.Draw(_texture, _position, new Rectangle(0, 0, 1090, 861), Color.White, 0f, new Vector2(612, 438), new Vector2(0.1f, 0.1f), SpriteEffects.FlipHorizontally, 1f);
+                effect = SpriteEffects.FlipHorizontally;
             }
-        
+            spriteBatch.Draw(_texture, _position, sourceRectangle, Color.White, 0f, new Vector2(612, 438), new Vector2(0.15f, 0.15f), effect, 1f);
+
         }
     }
 }

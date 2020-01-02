@@ -43,9 +43,9 @@ namespace Doppler
             if (!Game1.paused)
             {
                 //update all minions
-                foreach (MinionSprite minion in minions)
+                foreach (AnimatedMinionSprite minion in minions)
                 {
-                    minion.Update();
+                    minion.Update(gameTime);
                 }
 
                 //obtain 1 mana
@@ -114,7 +114,7 @@ namespace Doppler
         {
             if(mana >= MinionSprite.manaCost)
             {
-                minions.Add(new MinionSprite(currentLane));
+                minions.Add(new AnimatedMinionSprite(_texture, currentLane, 4, 1));
                 minionsPerLane[currentLane]++;
                 Game1.sounds[2].Play();
                 mana -= MinionSprite.manaCost;
@@ -129,7 +129,7 @@ namespace Doppler
 
         public void DrawMinions(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach (MinionSprite minion in minions)
+            foreach (AnimatedMinionSprite minion in minions)
             {
                 minion.Draw(spriteBatch);
             }

@@ -44,7 +44,6 @@ namespace Doppler
             int column = currentFrame % Columns;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)_position.X, (int)_position.Y, width, height);
 
             spriteBatch.Draw(_texture, _position, sourceRectangle, Color.White, 0f, new Vector2(595, 474), new Vector2(0.3f, 0.3f), SpriteEffects.None, 1f);
             DrawMinions(spriteBatch, gameTime);

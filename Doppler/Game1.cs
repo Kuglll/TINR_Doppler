@@ -34,6 +34,7 @@ namespace Doppler
 
         public Game1()
         {
+            //window size
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferHeight = 600;
             graphics.ApplyChanges();

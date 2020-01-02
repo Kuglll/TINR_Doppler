@@ -134,7 +134,7 @@ namespace Doppler
         {
             foreach (MinionSprite minion in minions)
             {
-                minion.Draw(spriteBatch);
+                minion.Draw(spriteBatch, MinionSprite.sourceRectangle);
             }
         }
     }
