@@ -20,15 +20,11 @@ namespace Doppler
         public float Speed = 1.5f;
         public static int manaCost = 2;
 
-        //static image rectangle
-        public static Rectangle sourceRectangle;
-
         public MinionSprite(int lane, bool ally)
         {
             _texture = Game1.content.Load<Texture2D>("characters/chicken");
             _ally = ally;
             _position = getPositionByLane(lane);
-            sourceRectangle = new Rectangle(0, 0, 550, 434);
         }
 
         public MinionSprite(int lane) : this(lane, true){}

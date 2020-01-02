@@ -42,9 +42,9 @@ namespace Doppler
             if (!Game1.paused)
             {
                 //update minions
-                foreach (MinionSprite minion in minions)
+                foreach (AnimatedMinionSprite minion in minions)
                 {
-                    minion.Update();
+                    minion.Update(gameTime);
                 }
 
                 //Do action every 1 second + obtain 1 mana
@@ -122,7 +122,7 @@ namespace Doppler
 
         public void spawnMinion()
         {
-            minions.Add(new MinionSprite(currentLane, false));
+            minions.Add(new AnimatedMinionSprite(_texture, currentLane, 4, 1, false));
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -132,9 +132,9 @@ namespace Doppler
         }
         public void DrawMinions(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach (MinionSprite minion in minions)
+            foreach (AnimatedMinionSprite minion in minions)
             {
-                minion.Draw(spriteBatch, MinionSprite.sourceRectangle);
+                minion.Draw(spriteBatch);
             }
         }
     }
