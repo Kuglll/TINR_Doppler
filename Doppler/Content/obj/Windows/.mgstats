@@ -1,4 +1,3 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"X:/VisualCodeProjects/Doppler/Doppler/Content/characters/chicken.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/characters/chicken.xnb","TextureProcessor","Texture2DContent",152570,3819285,0,2499056
-"X:/VisualCodeProjects/Doppler/Doppler/Content/characters/pinkBird.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/characters/pinkBird.xnb","TextureProcessor","Texture2DContent",37733,774061,0,0440066
-"X:/VisualCodeProjects/Doppler/Doppler/Content/characters/yellowBird.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/characters/yellowBird.xnb","TextureProcessor","Texture2DContent",28472,905109,0,0199888
+"X:/VisualCodeProjects/Doppler/Doppler/Content/collision.wav","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/collision.xnb","SoundEffectProcessor","SoundEffectContent",882044,882105,0,4003928
+"X:/VisualCodeProjects/Doppler/Doppler/Content/collision2.wav","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/collision2.xnb","SoundEffectProcessor","SoundEffectContent",97428,97489,0,2530409

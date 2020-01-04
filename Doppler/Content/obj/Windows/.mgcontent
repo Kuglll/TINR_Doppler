@@ -5,6 +5,7 @@
   <Config />
   <SourceFiles>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/ai.wav</File>
+    <File>X:/VisualCodeProjects/Doppler/Doppler/Content/background_small.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/button.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/characters/chicken.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/characters/greenBird.png</File>
@@ -12,6 +13,9 @@
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/characters/pinkBird.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/characters/yellowBird.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/coin.png</File>
+    <File>X:/VisualCodeProjects/Doppler/Doppler/Content/collision.wav</File>
+    <File>X:/VisualCodeProjects/Doppler/Doppler/Content/collision2.wav</File>
+    <File>X:/VisualCodeProjects/Doppler/Doppler/Content/frame.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/gui.png</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/human.wav</File>
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/Level.spritefont</File>
@@ -19,6 +23,10 @@
     <File>X:/VisualCodeProjects/Doppler/Doppler/Content/tiles.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

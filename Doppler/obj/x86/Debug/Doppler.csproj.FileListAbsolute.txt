@@ -34,3 +34,7 @@ X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\button.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\greenBird.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\pinkBird.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\yellowBird.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\frame.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\background_small.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\collision.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\collision2.xnb

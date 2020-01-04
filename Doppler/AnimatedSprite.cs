@@ -27,13 +27,16 @@ namespace Doppler
 
         public void Update(GameTime gameTime)
         {
-            if ((float)gameTime.TotalGameTime.TotalSeconds - lastUpdate > 0.1f)
+            if (!Play.paused && !Play.finished)
             {
-                lastUpdate = (float)gameTime.TotalGameTime.TotalSeconds;
-                currentFrame++;
-                if (currentFrame == totalFrames) currentFrame = 0;
+                if ((float)gameTime.TotalGameTime.TotalSeconds - lastUpdate > 0.1f)
+                {
+                    lastUpdate = (float)gameTime.TotalGameTime.TotalSeconds;
+                    currentFrame++;
+                    if (currentFrame == totalFrames) currentFrame = 0;
+                }
+                base.Update(gameTime);
             }
-            base.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

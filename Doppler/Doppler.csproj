@@ -46,15 +46,19 @@
     <Compile Include="AnimatedSprite.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Coin.cs" />
+    <Compile Include="Configs.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Gameplay.cs" />
     <Compile Include="GUI.cs" />
+    <Compile Include="MainMenu.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="Play.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AiSprite.cs" />
     <Compile Include="MinionSprite.cs" />
     <Compile Include="Scene.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="Tile.cs" />
   </ItemGroup>
