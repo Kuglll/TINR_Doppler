@@ -122,18 +122,6 @@ namespace Doppler
                 spriteBatch.DrawString(Game1.font, health1.ToString(), new Vector2(325, 543), Color.Black);
             }
 
-            if (mana1 == 10){
-                spriteBatch.DrawString(Game1.font, mana1.ToString(), new Vector2(315, 480), Color.Black);
-            }else{
-                spriteBatch.DrawString(Game1.font, mana1.ToString(), new Vector2(325, 480), Color.Black);
-            }
-            if (health1 == 10){
-                spriteBatch.DrawString(Game1.font, health1.ToString(), new Vector2(315, 543), Color.Black);
-            }else{
-                spriteBatch.DrawString(Game1.font, health1.ToString(), new Vector2(325, 543), Color.Black);
-            }
-
-
             //player2
             spriteBatch.DrawString(Game1.font, "Mana: ", new Vector2(575, 480), Color.Black);
             spriteBatch.DrawString(Game1.font, "Health: ", new Vector2(575, 543), Color.Black);

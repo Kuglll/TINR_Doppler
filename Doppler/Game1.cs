@@ -21,7 +21,7 @@ namespace Doppler
         List<Message> messages = new List<Message>();
         public static List<SoundEffect> sounds = new List<SoundEffect>();
 
-        Play play;
+        MainMenu menu;
 
         public Game1()
         {
@@ -36,7 +36,8 @@ namespace Doppler
         protected override void Initialize()
         {
             configs = new Configs(this);
-            play = new Play();
+            menu = new MainMenu();
+
             base.Initialize();
             Console.WriteLine("Width: " + GraphicsDevice.Viewport.Bounds.Width + " Height: " + GraphicsDevice.Viewport.Bounds.Height);
         }
@@ -62,7 +63,7 @@ namespace Doppler
 
         protected override void Update(GameTime gameTime)
         {
-            play.Update(gameTime);
+            menu.Update(gameTime);
 
             // check for message duration
             for(int i=0; i<messages.Count; i++)
@@ -83,7 +84,7 @@ namespace Doppler
 
             spriteBatch.Begin();
 
-            play.Draw(spriteBatch, gameTime);
+            menu.Draw(spriteBatch, gameTime);
 
             spriteBatch.End();
 

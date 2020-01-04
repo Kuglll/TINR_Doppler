@@ -53,7 +53,7 @@ namespace Doppler
             var quitButton = new Button(buttonTexture, Game1.font)
             {
                 Position = new Vector2(350, 250),
-                Text = "Return to Main Menu"
+                Text = "Back"
             };
 
             quitButton.Click += QuitButtonClick;
@@ -100,6 +100,7 @@ namespace Doppler
             //finished game
             if (finished)
             {
+                buttons[1].Update(Game1._gameTime);
                 Game1.configs.SetMouseVisible();
                 paused = false;
             }
@@ -143,7 +144,8 @@ namespace Doppler
             //finished state
             if (finished)
             {
-                spriteBatch.DrawString(Game1.font, winner + " wins!", new Vector2(320, 200), Color.Black);
+                buttons[1].Draw(gameTime, spriteBatch);
+                spriteBatch.DrawString(Game1.font, winner + " wins!", new Vector2(325, 200), Color.Black);
             }
         }
 

@@ -25,5 +25,10 @@ namespace Doppler
         {
             _game.IsMouseVisible = false;
         }
+
+        public void Exit()
+        {
+            _game.Exit();
+        }
     }
 }
