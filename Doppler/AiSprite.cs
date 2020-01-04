@@ -30,7 +30,7 @@ namespace Doppler
         public AiSprite(Texture2D texture, int lane)
         {
             rnd = new Random();
-            _position.X = 730;
+            _position.X = 870;
             _texture = texture;
 
             selectedLane = null;
@@ -42,9 +42,9 @@ namespace Doppler
             if (!Game1.paused)
             {
                 //update minions
-                foreach (MinionSprite minion in minions)
+                foreach (AnimatedMinionSprite minion in minions)
                 {
-                    minion.Update();
+                    minion.Update(gameTime);
                 }
 
                 //Do action every 1 second + obtain 1 mana
@@ -67,9 +67,9 @@ namespace Doppler
         {
             switch (lane)
             {
-                case 0: _position.Y = 65; break;
-                case 1: _position.Y = 215; break;
-                case 2: _position.Y = 365; break;
+                case 0: _position.Y = 150; break;
+                case 1: _position.Y = 300; break;
+                case 2: _position.Y = 450; break;
             }
         }
 
@@ -122,13 +122,17 @@ namespace Doppler
 
         public void spawnMinion()
         {
-            minions.Add(new MinionSprite(currentLane, false));
+            minions.Add(new AnimatedMinionSprite(_texture, currentLane, 4, 1, false));
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(_texture, _position, new Rectangle(0, 0, 1116, 864), Color.White, 0f, new Vector2(470, 642), new Vector2(0.1f, 0.1f), SpriteEffects.FlipHorizontally, 1f);
-            foreach (MinionSprite minion in minions)
+            DrawMinions(spriteBatch, gameTime);
+        }
+        public void DrawMinions(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            foreach (AnimatedMinionSprite minion in minions)
             {
                 minion.Draw(spriteBatch);
             }

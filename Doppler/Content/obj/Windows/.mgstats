@@ -1,3 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"X:/VisualCodeProjects/Doppler/Doppler/Content/button.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/button.xnb","TextureProcessor","Texture2DContent",279,15085,0,2649056
-"X:/VisualCodeProjects/Doppler/Doppler/Content/gui.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/gui.xnb","TextureProcessor","Texture2DContent",2432,1579597,0,0569658
+"X:/VisualCodeProjects/Doppler/Doppler/Content/characters/chicken.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/characters/chicken.xnb","TextureProcessor","Texture2DContent",152570,3819285,0,2499056
+"X:/VisualCodeProjects/Doppler/Doppler/Content/characters/pinkBird.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/characters/pinkBird.xnb","TextureProcessor","Texture2DContent",37733,774061,0,0440066
+"X:/VisualCodeProjects/Doppler/Doppler/Content/characters/yellowBird.png","X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/characters/yellowBird.xnb","TextureProcessor","Texture2DContent",28472,905109,0,0199888

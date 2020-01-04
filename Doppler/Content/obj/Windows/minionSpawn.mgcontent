@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>X:/VisualCodeProjects/Doppler/Doppler/Content/minionSpawn.wav</SourceFile>
-  <SourceTime>2019-12-16T15:41:06.415062+01:00</SourceTime>
+  <SourceTime>2020-01-01T12:08:20.7283377+01:00</SourceTime>
   <DestFile>X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/minionSpawn.xnb</DestFile>
-  <DestTime>2019-12-24T16:40:46.4596922+01:00</DestTime>
+  <DestTime>2020-01-01T18:17:33.494353+01:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

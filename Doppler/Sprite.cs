@@ -33,7 +33,7 @@ namespace Doppler
 
         public Sprite(Texture2D texture, int lane)
         {
-            _position.X = 60;
+            _position.X = 180;
             currentLane = lane;
             _texture = texture;
         }
@@ -43,9 +43,9 @@ namespace Doppler
             if (!Game1.paused)
             {
                 //update all minions
-                foreach (MinionSprite minion in minions)
+                foreach (AnimatedMinionSprite minion in minions)
                 {
-                    minion.Update();
+                    minion.Update(gameTime);
                 }
 
                 //obtain 1 mana
@@ -104,9 +104,9 @@ namespace Doppler
         {
             switch (lane)
             {
-                case 0: _position.Y = 50; break;
-                case 1: _position.Y = 200; break;
-                case 2: _position.Y = 350; break;
+                case 0: _position.Y = 160; break;
+                case 1: _position.Y = 310; break;
+                case 2: _position.Y = 460; break;
             }
         }
 
@@ -114,7 +114,7 @@ namespace Doppler
         {
             if(mana >= MinionSprite.manaCost)
             {
-                minions.Add(new MinionSprite(currentLane));
+                minions.Add(new AnimatedMinionSprite(_texture, currentLane, 4, 1));
                 minionsPerLane[currentLane]++;
                 Game1.sounds[2].Play();
                 mana -= MinionSprite.manaCost;
@@ -124,7 +124,12 @@ namespace Doppler
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(_texture, _position, new Rectangle(74, 22, 1176, 1203), Color.White, 0f, new Vector2(595, 474), new Vector2(0.1f, 0.1f), SpriteEffects.None, 1f);
-            foreach (MinionSprite minion in minions)
+            DrawMinions(spriteBatch, gameTime);
+        }
+
+        public void DrawMinions(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            foreach (AnimatedMinionSprite minion in minions)
             {
                 minion.Draw(spriteBatch);
             }
