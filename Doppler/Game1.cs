@@ -131,7 +131,11 @@ namespace Doppler
                 EscapePressed = false;
             }
 
-            
+            //updating gameplay
+            Gameplay.checkForCollisions();
+            Gameplay.checkForMinionsReachingEnd();
+
+            //updating scene
             _scene.Update(gameTime);
 
             // updating menu buttons

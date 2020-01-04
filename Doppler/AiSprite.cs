@@ -19,7 +19,7 @@ namespace Doppler
         public float Speed = 2f;
         public int currentLane;
         public int? selectedLane;
-        ArrayList minions = new ArrayList();
+        public static ArrayList minions = new ArrayList();
 
         private int health = 10;
         private int mana = 0;
@@ -35,6 +35,8 @@ namespace Doppler
 
             selectedLane = null;
             currentLane = lane;
+
+            GUI.UpdatePlayer2Health(health);
         }
 
         public void Update(GameTime gameTime)
@@ -44,7 +46,10 @@ namespace Doppler
                 //update minions
                 foreach (AnimatedMinionSprite minion in minions)
                 {
-                    minion.Update(gameTime);
+                    if (minion != null)
+                    {
+                        minion.Update(gameTime);
+                    }
                 }
 
                 //Do action every 1 second + obtain 1 mana
@@ -53,13 +58,12 @@ namespace Doppler
                     mana += 1;
                     doAction();
                     lastActionTime = (float)gameTime.TotalGameTime.TotalSeconds;
-                    //Console.WriteLine("Mana player2: " + mana);
                 }
 
                 updatePosition(currentLane);
 
                 //update GUI
-                GUI.UpdatePlayer2(health, mana, minionSelected);
+                GUI.UpdatePlayer2Mana(mana);
             }
         }
 
@@ -134,7 +138,10 @@ namespace Doppler
         {
             foreach (AnimatedMinionSprite minion in minions)
             {
-                minion.Draw(spriteBatch);
+                if (minion != null)
+                {
+                    minion.Draw(spriteBatch);
+                }
             }
         }
     }
