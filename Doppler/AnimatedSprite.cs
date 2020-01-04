@@ -27,7 +27,7 @@ namespace Doppler
 
         public void Update(GameTime gameTime)
         {
-            if (!Game1.paused && !Game1.finished)
+            if (!Play.paused && !Play.finished)
             {
                 if ((float)gameTime.TotalGameTime.TotalSeconds - lastUpdate > 0.1f)
                 {
