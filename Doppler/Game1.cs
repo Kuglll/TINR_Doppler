@@ -18,6 +18,9 @@ namespace Doppler
         Random rnd;
         public static SpriteFont font;
         Texture2D buttonTexture;
+        public static bool finished = false;
+        String winner = "";
+
         public static bool paused = false;
         bool EscapePressed = false;
 
@@ -131,9 +134,22 @@ namespace Doppler
                 EscapePressed = false;
             }
 
+            //finished game
+            if (finished)
+            {
+                IsMouseVisible = true;
+                paused = false;
+            }
+
             //updating gameplay
             Gameplay.checkForCollisions();
             Gameplay.checkForMinionsReachingEnd();
+            winner = Gameplay.checkForWinCondition();
+
+            if(winner != "")
+            {
+                finished = true;
+            }
 
             //updating scene
             _scene.Update(gameTime);
@@ -175,6 +191,12 @@ namespace Doppler
             {
                 foreach (var button in buttons)
                     button.Draw(_gameTime, spriteBatch);
+            }
+
+            //finished state
+            if (finished)
+            {
+                spriteBatch.DrawString(font, winner+" wins!", new Vector2(320, 200), Color.Black);
             }
 
             spriteBatch.End();

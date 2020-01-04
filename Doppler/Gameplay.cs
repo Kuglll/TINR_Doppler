@@ -52,9 +52,18 @@ namespace Doppler
             }
         }
 
-        public static void checkForWinCondition()
+        public static String checkForWinCondition()
         {
-
+            if(GUI.getPlayer1Health() <= 0)
+            {
+                return "Player 2";
+            }
+            else if(GUI.getPlayer2Health() <= 0)
+            {
+                return "Player 1";
+            }
+            return "";
+            
         }
 
     }

@@ -41,7 +41,7 @@ namespace Doppler
 
         public void Update(GameTime gameTime)
         {
-            if (!Game1.paused)
+            if (!Game1.paused && !Game1.finished)
             {
                 //update minions
                 foreach (AnimatedMinionSprite minion in minions)
