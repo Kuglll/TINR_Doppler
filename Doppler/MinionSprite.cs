@@ -22,6 +22,7 @@ namespace Doppler
 
         public MinionSprite(int lane, bool ally)
         {
+            _lane = lane;
             _texture = Game1.content.Load<Texture2D>("characters/chicken");
             _ally = ally;
             _position = getPositionByLane(lane);

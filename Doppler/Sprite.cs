@@ -28,7 +28,7 @@ namespace Doppler
 
         float lastManaObtained = 0;
 
-        ArrayList minions = new ArrayList();
+        public static ArrayList minions = new ArrayList();
         public static int[] minionsPerLane = { 0, 0, 0 };
 
         public Sprite(Texture2D texture, int lane)
@@ -36,6 +36,8 @@ namespace Doppler
             _position.X = 180;
             currentLane = lane;
             _texture = texture;
+
+            GUI.UpdatePlayer1Health(health);
         }
 
         public void Update(GameTime gameTime)
@@ -45,7 +47,10 @@ namespace Doppler
                 //update all minions
                 foreach (AnimatedMinionSprite minion in minions)
                 {
-                    minion.Update(gameTime);
+                    if (minion != null)
+                    {
+                        minion.Update(gameTime);
+                    }
                 }
 
                 //obtain 1 mana
@@ -96,7 +101,7 @@ namespace Doppler
                 updatePosition(currentLane);
 
                 //update GUI
-                GUI.UpdatePlayer1(health, mana, minionSelected);
+                GUI.UpdatePlayer1Mana(mana);
             }
         }
 
@@ -118,6 +123,8 @@ namespace Doppler
                 minionsPerLane[currentLane]++;
                 Game1.sounds[2].Play();
                 mana -= MinionSprite.manaCost;
+                Console.WriteLine("humanlane:" + currentLane);
+
             }
         }
 
@@ -131,7 +138,9 @@ namespace Doppler
         {
             foreach (AnimatedMinionSprite minion in minions)
             {
-                minion.Draw(spriteBatch);
+                if(minion != null){
+                    minion.Draw(spriteBatch);
+                }
             }
         }
     }

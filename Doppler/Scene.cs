@@ -41,7 +41,6 @@ namespace Doppler
         public void setupPlayers()
         {
             _sprite1 = new AnimatedSprite(playerTexture, 0, 1, 2);
-            // _sprite1 = new Sprite(playerTexture, 0);
             _spriteAi = new AnimatedAISprite(aiTexture, 0, 1, 2);
         }
 

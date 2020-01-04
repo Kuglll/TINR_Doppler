@@ -47,6 +47,7 @@
     <Compile Include="Button.cs" />
     <Compile Include="Coin.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Gameplay.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Program.cs" />

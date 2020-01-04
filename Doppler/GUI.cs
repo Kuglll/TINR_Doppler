@@ -27,17 +27,43 @@ namespace Doppler
             guiTexture = Game1.content.Load<Texture2D>("gui");
         }
 
-        public static void UpdatePlayer1(int h, int ma, int mi)
+        public static int getPlayer1Health()
+        {
+            return health1;
+        }
+
+        public static void UpdatePlayer1Health(int h)
         {
             health1 = h;
+        }
+
+        public static void UpdatePlayer1Mana(int ma)
+        {
             mana1 = ma;
+        }
+
+        public static void UpdatePlayer1Minion(int mi)
+        {
             minion1 = mi;
         }
 
-        public static void UpdatePlayer2(int h, int ma, int mi)
+        public static int getPlayer2Health()
+        {
+            return health2;
+        }
+
+        public static void UpdatePlayer2Health(int h)
         {
             health2 = h;
+        }
+
+        public static void UpdatePlayer2Mana(int ma)
+        {
             mana2 = ma;
+        }
+
+        public static void UpdatePlayer2Minion(int mi)
+        {
             minion2 = mi;
         }
 
@@ -53,7 +79,7 @@ namespace Doppler
             }
             for (int i = 0; i < health1; i++)
             {
-                spriteBatch.Draw(guiTexture, new Vector2(200, 538), new Rectangle(445, 325, 100, 38), Color.White); //health
+                spriteBatch.Draw(guiTexture, new Vector2(200, 538), new Rectangle(445, 325, 10*health1, 38), Color.White); //health
             }
 
             //player2
@@ -62,7 +88,7 @@ namespace Doppler
              }
             for (int i = 0; i < health2; i++)
             {
-                spriteBatch.Draw(guiTexture, new Vector2(600, 538), new Rectangle(445, 325, 100, 38), Color.White); //health
+                spriteBatch.Draw(guiTexture, new Vector2(600, 538), new Rectangle(445, 325, 10*health2, 38), Color.White); //health
             }
 
         }
