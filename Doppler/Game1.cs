@@ -16,7 +16,7 @@ namespace Doppler
         public static GameTime _gameTime;
 
         Random rnd;
-        SpriteFont font;
+        public static SpriteFont font;
         Texture2D buttonTexture;
         public static bool paused = false;
         bool EscapePressed = false;
