@@ -19,24 +19,34 @@ namespace Doppler
         public float Speed = 2f;
         public int currentLane;
         public int? selectedLane;
-        public static ArrayList minions = new ArrayList();
+        public static ArrayList minions;
 
-        private int health = 10;
-        private int mana = 0;
-        private int minionSelected = 0;
+        private int health;
+        private int mana;
+        private int minionSelected;
 
-        float lastActionTime = 0;
+        float lastActionTime;
 
         public AiSprite(Texture2D texture, int lane)
         {
+            init();
             rnd = new Random();
-            _position.X = 870;
             _texture = texture;
 
             selectedLane = null;
             currentLane = lane;
 
             GUI.UpdatePlayer2Health(health);
+        }
+
+        private void init()
+        {
+            minions = new ArrayList();
+            health = 10;
+            mana = 0;
+            minionSelected = 0;
+            _position.X = 870;
+            lastActionTime = 0;
         }
 
         public void Update(GameTime gameTime)

@@ -13,9 +13,9 @@ namespace Doppler
         List<Button> buttons = new List<Button>();
         SpriteFont font;
         Texture2D buttonTexture;
-        bool menu = true;
-        bool playing = false;
-        bool settings = false;
+        static bool menu = true;
+        static bool playing = false;
+        static bool settings = false;
 
         Play play;
 
@@ -78,7 +78,7 @@ namespace Doppler
 
         private void PlayHumanButtonClick(object sender, System.EventArgs e)
         {
-            Game1.configs.SetMouseInvisible();
+            //Game1.configs.SetMouseInvisible();
 
         }
 
@@ -90,6 +90,13 @@ namespace Doppler
         private void ExitButtonClick(object sender, System.EventArgs e)
         {
             Game1.configs.Exit();
+        }
+
+        public static void ShowMainMenu()
+        {
+            menu = true;
+            playing = false;
+            settings = false;
         }
 
 

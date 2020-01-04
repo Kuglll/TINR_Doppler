@@ -18,26 +18,44 @@ namespace Doppler
         public float Speed = 2f;
         public int currentLane;
 
-        public bool WPressed = false;
-        public bool SPressed = false;
-        public bool SpacePressed = true;
+        public bool WPressed;
+        public bool SPressed;
+        public bool SpacePressed;
 
-        private int health = 1;
-        private int mana = 0;
-        private int minionSelected = 0;
+        private int health;
+        private int mana;
+        private int minionSelected;
 
-        float lastManaObtained = 0;
+        float lastManaObtained;
 
-        public static ArrayList minions = new ArrayList();
-        public static int[] minionsPerLane = { 0, 0, 0 };
+        public static ArrayList minions;
+        public static int[] minionsPerLane = new int[3];
 
         public Sprite(Texture2D texture, int lane)
         {
+            init();
             _position.X = 180;
             currentLane = lane;
             _texture = texture;
 
             GUI.UpdatePlayer1Health(health);
+        }
+
+        public void init()
+        {
+            WPressed = false;
+            SPressed = false;
+            SpacePressed = true;
+
+            health = 10;
+            mana = 0;
+            minionSelected = 0;
+            lastManaObtained = 0;
+
+            minions = new ArrayList();
+            minionsPerLane[0] = 0;
+            minionsPerLane[1] = 0;
+            minionsPerLane[2] = 0;
         }
 
         public void Update(GameTime gameTime)

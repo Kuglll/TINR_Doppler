@@ -12,12 +12,12 @@ namespace Doppler
     class Play
     {
         List<Button> buttons = new List<Button>();
-        public static bool finished = false;
+        public static bool finished;
         String winner = "";
 
         Texture2D buttonTexture;
-        public static bool paused = false;
-        bool EscapePressed = false;
+        public static bool paused;
+        bool EscapePressed;
 
 
         //Scene
@@ -28,6 +28,10 @@ namespace Doppler
 
         public Play()
         {
+            paused = false;
+            EscapePressed = false;
+            finished = false;
+
             buttonTexture = Game1.content.Load<Texture2D>("button");
 
             // Create scene
@@ -70,8 +74,8 @@ namespace Doppler
 
         private void QuitButtonClick(object sender, System.EventArgs e)
         {
-            //Exit();
-            //TODO: return back to mainmenu
+            MainMenu.ShowMainMenu();
+            Game1.configs.SetMouseVisible();
         }
 
         public void Update(GameTime gameTime)
