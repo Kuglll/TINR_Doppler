@@ -36,3 +36,5 @@ X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\p
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\characters\yellowBird.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\frame.xnb
 X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\background_small.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\collision.xnb
+X:\VisualCodeProjects\Doppler\Doppler\bin\Windows\x86\Debug\Content\collision2.xnb

@@ -22,7 +22,7 @@ namespace Doppler
         public bool SPressed = false;
         public bool SpacePressed = true;
 
-        private int health = 1;
+        private int health = 10;
         private int mana = 0;
         private int minionSelected = 0;
 

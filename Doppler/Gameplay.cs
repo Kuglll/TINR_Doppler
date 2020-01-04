@@ -23,7 +23,7 @@ namespace Doppler
                         {
                             AiSprite.minions[i] = null;
                             Sprite.minions[k] = null;
-                            //TODO : play a sound
+                            Game1.sounds[3].Play(0.2f, 0 ,0);
                         }
                     }
                 }
@@ -38,7 +38,7 @@ namespace Doppler
                 {
                     GUI.UpdatePlayer1Health(GUI.getPlayer1Health() - 1);
                     AiSprite.minions[i] = null;
-                    //TODO : play a sound
+                    Game1.sounds[4].Play(0.4f, 0 , 0);
                 }
             }
             for (int i = 0; i < Sprite.minions.Count; i++)
@@ -47,7 +47,7 @@ namespace Doppler
                 {
                     GUI.UpdatePlayer2Health(GUI.getPlayer2Health() - 1);
                     Sprite.minions[i] = null;
-                    //TODO : play a sound
+                    Game1.sounds[4].Play(0.4f, 0, 0);
                 }
             }
         }

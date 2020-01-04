@@ -72,6 +72,8 @@ namespace Doppler
             sounds.Add(content.Load<SoundEffect>("human"));
             sounds.Add(content.Load<SoundEffect>("ai"));
             sounds.Add(content.Load<SoundEffect>("minionSpawn"));
+            sounds.Add(content.Load<SoundEffect>("collision"));
+            sounds.Add(content.Load<SoundEffect>("collision2"));
         }
 
         public void CreateButtons()

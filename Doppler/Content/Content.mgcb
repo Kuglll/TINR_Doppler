@@ -115,6 +115,18 @@
 /processorParam:TextureFormat=Color
 /build:coin.png
 
+#begin collision.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:collision.wav
+
+#begin collision2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:collision2.wav
+
 #begin frame.png
 /importer:TextureImporter
 /processor:TextureProcessor
