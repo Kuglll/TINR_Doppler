@@ -15,6 +15,7 @@ namespace Doppler
 
         ArrayList tiles = new ArrayList();
         Texture2D tileTexture;
+        Texture2D backgroundTexture;
 
         //player
         private AnimatedSprite _sprite1;
@@ -36,6 +37,7 @@ namespace Doppler
             tileTexture = Game1.content.Load<Texture2D>("tiles");
             playerTexture = Game1.content.Load<Texture2D>("characters/pinkBird");
             aiTexture = Game1.content.Load<Texture2D>("characters/yellowBird");
+            backgroundTexture = Game1.content.Load<Texture2D>("background_small");
         }
 
         public void setupPlayers()
@@ -69,6 +71,8 @@ namespace Doppler
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
+            spriteBatch.Draw(backgroundTexture, new Vector2(0,0), Color.White);
+
             foreach(Tile tile in tiles)
             {
                 tile.Draw(spriteBatch);

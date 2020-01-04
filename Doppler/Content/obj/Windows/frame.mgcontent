@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>X:/VisualCodeProjects/Doppler/Doppler/Content/characters/chicken.png</SourceFile>
-  <SourceTime>2020-01-04T13:16:23.960338+01:00</SourceTime>
-  <DestFile>X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/characters/chicken.xnb</DestFile>
-  <DestTime>2020-01-04T16:47:49.3876884+01:00</DestTime>
+  <SourceFile>X:/VisualCodeProjects/Doppler/Doppler/Content/frame.png</SourceFile>
+  <SourceTime>2020-01-04T16:31:02.7834506+01:00</SourceTime>
+  <DestFile>X:/VisualCodeProjects/Doppler/Doppler/Content/bin/Windows/frame.xnb</DestFile>
+  <DestTime>2020-01-04T16:47:50.2379132+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
