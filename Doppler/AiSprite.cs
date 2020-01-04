@@ -58,7 +58,6 @@ namespace Doppler
                     mana += 1;
                     doAction();
                     lastActionTime = (float)gameTime.TotalGameTime.TotalSeconds;
-                    //Console.WriteLine("Mana player2: " + mana);
                 }
 
                 updatePosition(currentLane);
@@ -128,7 +127,6 @@ namespace Doppler
         public void spawnMinion()
         {
             minions.Add(new AnimatedMinionSprite(_texture, currentLane, 4, 1, false));
-            Console.WriteLine("ailane:"+ currentLane);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

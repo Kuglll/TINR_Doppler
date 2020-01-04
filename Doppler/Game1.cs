@@ -133,6 +133,7 @@ namespace Doppler
 
             //updating gameplay
             Gameplay.checkForCollisions();
+            Gameplay.checkForMinionsReachingEnd();
 
             //updating scene
             _scene.Update(gameTime);

@@ -123,8 +123,6 @@ namespace Doppler
                 minionsPerLane[currentLane]++;
                 Game1.sounds[2].Play();
                 mana -= MinionSprite.manaCost;
-                Console.WriteLine("humanlane:" + currentLane);
-
             }
         }
 
