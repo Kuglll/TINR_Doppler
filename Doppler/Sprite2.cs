@@ -82,7 +82,7 @@ namespace Doppler
                     if (currentLane > 0)
                     {
                         currentLane -= 1;
-                        Game1.sounds[0].Play();
+                        Game1.sounds[1].Play();
                     }
                 }
                 else if (Keyboard.GetState().IsKeyUp(Keys.Up))
@@ -95,7 +95,7 @@ namespace Doppler
                     if (currentLane < 2)
                     {
                         currentLane += 1;
-                        Game1.sounds[0].Play();
+                        Game1.sounds[1].Play();
                     }
                 }
                 else if (Keyboard.GetState().IsKeyUp(Keys.Down))
