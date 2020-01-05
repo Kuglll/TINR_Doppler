@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,15 @@ namespace Doppler
 
         private void ReadSettingsFile()
         {
-            //TODO: read a file and change settings (mute on, off)
+            string readText = File.ReadAllText("..\\..\\..\\..\\Settings\\settings.txt");
+            if(readText == "True")
+            {
+                Mute();
+            }
+            else
+            {
+                Unmute();
+            }
         }
 
         public void SetMouseVisible()

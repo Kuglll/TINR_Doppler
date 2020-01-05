@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,7 +87,8 @@ namespace Doppler
         private void SaveButtonClick(object sender, System.EventArgs e)
         {
             Game1.addMessage("Settings saved!", new Vector2(320, 300));
-            //TODO: store to file + message saved
+            Directory.CreateDirectory("..\\..\\..\\..\\Settings");
+            File.WriteAllText("..\\..\\..\\..\\Settings\\settings.txt", Game1.configs.MuteStatus().ToString());
         }
 
         public void Update(GameTime gameTime)
