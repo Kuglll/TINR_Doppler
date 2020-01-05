@@ -144,6 +144,7 @@ namespace Doppler
             spriteBatch.Draw(_texture, _position, new Rectangle(0, 0, 1116, 864), Color.White, 0f, new Vector2(470, 642), new Vector2(0.1f, 0.1f), SpriteEffects.FlipHorizontally, 1f);
             DrawMinions(spriteBatch, gameTime);
         }
+
         public void DrawMinions(SpriteBatch spriteBatch, GameTime gameTime)
         {
             foreach (AnimatedMinionSprite minion in minions)
@@ -153,6 +154,11 @@ namespace Doppler
                     minion.Draw(spriteBatch);
                 }
             }
+        }
+
+        public ArrayList getMinions()
+        {
+            return minions;
         }
     }
 }

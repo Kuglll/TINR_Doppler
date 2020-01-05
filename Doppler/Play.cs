@@ -26,7 +26,7 @@ namespace Doppler
         //Gui
         private GUI _gui;
 
-        public Play()
+        public Play(bool ai)
         {
             paused = false;
             EscapePressed = false;
@@ -35,7 +35,7 @@ namespace Doppler
             buttonTexture = Game1.content.Load<Texture2D>("button");
 
             // Create scene
-            _scene = new Scene();
+            _scene = new Scene(ai);
 
             // Create gui
             _gui = new GUI();
@@ -43,6 +43,8 @@ namespace Doppler
             // Create buttons for menu
             CreateButtons();
         }
+
+        public Play(): this(true) { }
 
         public void CreateButtons()
         {
@@ -110,8 +112,6 @@ namespace Doppler
             }
 
             //updating gameplay
-            Gameplay.checkForCollisions();
-            Gameplay.checkForMinionsReachingEnd();
             winner = Gameplay.checkForWinCondition();
 
             if (winner != "")

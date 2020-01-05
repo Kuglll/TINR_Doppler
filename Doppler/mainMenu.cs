@@ -79,8 +79,10 @@ namespace Doppler
 
         private void PlayHumanButtonClick(object sender, System.EventArgs e)
         {
-            //Game1.configs.SetMouseInvisible();
-            //TODO: implement this
+            Game1.configs.SetMouseInvisible();
+            play = new Play(false);
+            menu = false;
+            playing = true;
         }
 
         private void SettingButtonClick(object sender, System.EventArgs e)
