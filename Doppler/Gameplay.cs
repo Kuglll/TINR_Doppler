@@ -21,6 +21,7 @@ namespace Doppler
                         if (((AnimatedMinionSprite)AiSprite.minions[i])._lane == ((AnimatedMinionSprite)Sprite.minions[k])._lane &&
                             ((AnimatedMinionSprite)AiSprite.minions[i])._position.X - ((AnimatedMinionSprite)Sprite.minions[k])._position.X < 70)
                         {
+                            Sprite.minionsPerLane[((AnimatedMinionSprite)AiSprite.minions[i])._lane]--; //AI correction
                             AiSprite.minions[i] = null;
                             Sprite.minions[k] = null;
                             Game1.sounds[3].Play(0.2f, 0 ,0);
