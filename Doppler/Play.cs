@@ -104,7 +104,7 @@ namespace Doppler
             //finished game
             if (finished)
             {
-                buttons[1].Update(Game1._gameTime);
+                buttons[1].Update(gameTime);
                 Game1.configs.SetMouseVisible();
                 paused = false;
             }
@@ -126,7 +126,7 @@ namespace Doppler
             if (paused)
             {
                 foreach (var button in buttons)
-                    button.Update(Game1._gameTime);
+                    button.Update(gameTime);
             }
         }
 

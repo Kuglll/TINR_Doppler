@@ -18,8 +18,8 @@ namespace Doppler
         public static Configs configs;
 
         //arrays
-        List<Message> messages = new List<Message>();
-        public static List<SoundEffect> sounds = new List<SoundEffect>();
+        static List<Message> messages;
+        public static List<SoundEffect> sounds;
 
         MainMenu menu;
 
@@ -31,6 +31,9 @@ namespace Doppler
             graphics.ApplyChanges();
             Content.RootDirectory = "Content";
             content = Content;
+
+            messages = new List<Message>();
+            sounds = new List<SoundEffect>();
         }
 
         protected override void Initialize()
@@ -65,10 +68,12 @@ namespace Doppler
         {
             menu.Update(gameTime);
 
+            _gameTime = gameTime;
+
             // check for message duration
             for(int i=0; i<messages.Count; i++)
             {
-                if((float)gameTime.TotalGameTime.TotalSeconds - messages[i]._timer > 3)
+                if((float)gameTime.TotalGameTime.TotalSeconds - messages[i]._timer > 1.5f)
                 {
                     messages.RemoveAt(i);
                 }
@@ -86,9 +91,27 @@ namespace Doppler
 
             menu.Draw(spriteBatch, gameTime);
 
+            foreach (var message in messages)
+            {
+                spriteBatch.DrawString(font, message._text, message._position, Color.Black);
+            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public static void deleteAllMessages()
+        {
+            for(int i=0; i<messages.Count; i++)
+            {
+                messages.RemoveAt(i);
+            }
+        }
+
+        public static void addMessage(String msg, Vector2 position)
+        {
+            messages.Add(new Message(msg, (float)_gameTime.TotalGameTime.TotalSeconds, position));
         }
     }
 }

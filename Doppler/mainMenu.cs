@@ -18,6 +18,7 @@ namespace Doppler
         static bool settings = false;
 
         Play play;
+        Settings stg;
 
         public MainMenu()
         {
@@ -84,7 +85,9 @@ namespace Doppler
 
         private void SettingButtonClick(object sender, System.EventArgs e)
         {
-
+            stg = new Settings();
+            menu = false;
+            settings = true;
         }
 
         private void ExitButtonClick(object sender, System.EventArgs e)
@@ -105,7 +108,7 @@ namespace Doppler
             if (menu)
             {
                 foreach (var button in buttons)
-                    button.Update(Game1._gameTime);
+                    button.Update(gameTime);
             }
             else if (playing)
             {
@@ -113,7 +116,7 @@ namespace Doppler
             }
             else if (settings)
             {
-                
+                stg.Update(gameTime);
             }
         }
 
@@ -130,7 +133,7 @@ namespace Doppler
             }
             else if (settings)
             {
-                
+                stg.Draw(spriteBatch, gameTime);
             }
         }
     }
