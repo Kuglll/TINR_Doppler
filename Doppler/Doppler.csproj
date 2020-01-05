@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AnimatedAISprite.cs" />
     <Compile Include="AnimatedMinionSprite.cs" />
+    <Compile Include="AnimatedSprite2.cs" />
     <Compile Include="AnimatedSprite.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Coin.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="MinionSprite.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Sprite2.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="Tile.cs" />
   </ItemGroup>

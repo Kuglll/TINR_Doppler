@@ -16,17 +16,22 @@ namespace Doppler
         ArrayList tiles = new ArrayList();
         Texture2D tileTexture;
         Texture2D backgroundTexture;
+        bool _ai;
 
-        //player
+        //player1
         private AnimatedSprite _sprite1;
         Texture2D playerTexture;
 
+        //player2
+        private AnimatedSprite2 _sprite2;
+
         //AI
-        private AnimatedAISprite _spriteAi;
+        private AnimatedAISprite _aiSprite;
         Texture2D aiTexture;
 
-        public Scene()
+        public Scene(bool ai)
         {
+            _ai = ai;
             initTextures();
             setupPlayers();
             generateTiles();
@@ -43,7 +48,14 @@ namespace Doppler
         public void setupPlayers()
         {
             _sprite1 = new AnimatedSprite(playerTexture, 0, 1, 2);
-            _spriteAi = new AnimatedAISprite(aiTexture, 0, 1, 2);
+            if (_ai)
+            {
+                _aiSprite = new AnimatedAISprite(aiTexture, 0, 1, 2);
+            }
+            else
+            {
+                _sprite2 = new AnimatedSprite2(aiTexture, 0, 1, 2);
+            }
         }
 
 
@@ -66,7 +78,18 @@ namespace Doppler
         public void Update(GameTime gameTime)
         {
             _sprite1.Update(gameTime);
-            _spriteAi.Update(gameTime);
+            if (_ai)
+            {
+                _aiSprite.Update(gameTime);
+                Gameplay.checkForCollisions(_aiSprite.getMinions(), _sprite1.getMinions());
+                Gameplay.checkForMinionsReachingEnd(_aiSprite.getMinions(), _sprite1.getMinions());
+            }
+            else
+            {
+                _sprite2.Update(gameTime);
+                Gameplay.checkForCollisions(_sprite2.getMinions(), _sprite1.getMinions());
+                Gameplay.checkForMinionsReachingEnd(_sprite2.getMinions(), _sprite1.getMinions());
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -81,8 +104,15 @@ namespace Doppler
             //player
             _sprite1.Draw(spriteBatch, gameTime);
 
-            //ai
-            _spriteAi.Draw(spriteBatch, gameTime);
+            if (_ai)
+            {
+                //ai
+                _aiSprite.Draw(spriteBatch, gameTime);
+            }
+            else
+            {
+                _sprite2.Draw(spriteBatch, gameTime);
+            }
         }
 
 

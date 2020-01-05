@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Doppler
 {
-    public class Sprite
+    public class Sprite2
     {
         public Texture2D _texture;
         public Vector2 _position;
@@ -18,9 +18,9 @@ namespace Doppler
         public float Speed = 2f;
         public int currentLane;
 
-        public bool WPressed;
-        public bool SPressed;
-        public bool SpacePressed;
+        public bool UpPressed;
+        public bool DownPressed;
+        public bool EnterPressed;
 
         private int health;
         private int mana;
@@ -29,23 +29,22 @@ namespace Doppler
         float lastManaObtained;
 
         public static ArrayList minions;
-        public static int[] minionsPerLane = new int[3];
 
-        public Sprite(Texture2D texture, int lane)
+        public Sprite2(Texture2D texture, int lane)
         {
             init();
-            _position.X = 180;
+            _position.X = 870;
             currentLane = lane;
             _texture = texture;
 
-            GUI.UpdatePlayer1Health(health);
+            GUI.UpdatePlayer2Health(health);
         }
 
         public void init()
         {
-            WPressed = false;
-            SPressed = false;
-            SpacePressed = true;
+            UpPressed = false;
+            DownPressed = false;
+            EnterPressed = true;
 
             health = 10;
             mana = 0;
@@ -53,9 +52,6 @@ namespace Doppler
             lastManaObtained = 0;
 
             minions = new ArrayList();
-            minionsPerLane[0] = 0;
-            minionsPerLane[1] = 0;
-            minionsPerLane[2] = 0;
         }
 
         public void Update(GameTime gameTime)
@@ -80,46 +76,46 @@ namespace Doppler
                 }
 
                 //process all the keys
-                if (Keyboard.GetState().IsKeyDown(Keys.W) && !WPressed)
+                if (Keyboard.GetState().IsKeyDown(Keys.Up) && !UpPressed)
                 {
-                    WPressed = true;
+                    UpPressed = true;
                     if (currentLane > 0)
                     {
                         currentLane -= 1;
-                        Game1.sounds[0].Play();
+                        Game1.sounds[1].Play();
                     }
                 }
-                else if (Keyboard.GetState().IsKeyUp(Keys.W))
+                else if (Keyboard.GetState().IsKeyUp(Keys.Up))
                 {
-                    WPressed = false;
+                    UpPressed = false;
                 }
-                if (Keyboard.GetState().IsKeyDown(Keys.S) && !SPressed)
+                if (Keyboard.GetState().IsKeyDown(Keys.Down) && !DownPressed)
                 {
-                    SPressed = true;
+                    DownPressed = true;
                     if (currentLane < 2)
                     {
                         currentLane += 1;
-                        Game1.sounds[0].Play();
+                        Game1.sounds[1].Play();
                     }
                 }
-                else if (Keyboard.GetState().IsKeyUp(Keys.S))
+                else if (Keyboard.GetState().IsKeyUp(Keys.Down))
                 {
-                    SPressed = false;
+                    DownPressed = false;
                 }
-                if (Keyboard.GetState().IsKeyDown(Keys.Space) && !SpacePressed)
+                if (Keyboard.GetState().IsKeyDown(Keys.Enter) && !EnterPressed)
                 {
-                    SpacePressed = true;
+                    EnterPressed = true;
                     spawnMinion();
                 }
-                else if (Keyboard.GetState().IsKeyUp(Keys.Space))
+                else if (Keyboard.GetState().IsKeyUp(Keys.Enter))
                 {
-                    SpacePressed = false;
+                    EnterPressed = false;
                 }
 
                 updatePosition(currentLane);
 
                 //update GUI
-                GUI.UpdatePlayer1Mana(mana);
+                GUI.UpdatePlayer2Mana(mana);
             }
         }
 
@@ -127,9 +123,9 @@ namespace Doppler
         {
             switch (lane)
             {
-                case 0: _position.Y = 160; break;
-                case 1: _position.Y = 310; break;
-                case 2: _position.Y = 460; break;
+                case 0: _position.Y = 150; break;
+                case 1: _position.Y = 300; break;
+                case 2: _position.Y = 450; break;
             }
         }
 
@@ -137,8 +133,7 @@ namespace Doppler
         {
             if(mana >= MinionSprite.manaCost)
             {
-                minions.Add(new AnimatedMinionSprite(_texture, currentLane, 4, 1));
-                minionsPerLane[currentLane]++;
+                minions.Add(new AnimatedMinionSprite(_texture, currentLane, 4, 1, false));
                 Game1.sounds[2].Play();
                 mana -= MinionSprite.manaCost;
             }
